@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Elnaz Beyhaghi">
+  <link rel="shortcut icon" href="../src/icons/Icon psychology alt.svg" type="image/x-icon">
+  <title>Costum Pick</title>
+  <link rel="stylesheet" href="../css/output.css">
+</head>
+
+<body class="container px-2 overflow-x-hidden">">
+  <!-- Navbar started -->
+  <nav class="bg-purpleretro border-black border-8 border-b-0">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="./index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <img src="../src/icons/Icon psychology alt.svg" class="h-8" alt="" />
+        <span class="self-center text-2xl font-semibold whitespace-nowra text-white">Quiz Land</span>
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button"
+        class="inline-flex items-center mb-1 p-2 w-10 h-10 justify-center  text-sm bg-white  text-darkgrayretro rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 focus:text-purpleretro"
+        aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M1 1h15M1 7h15M1 13h15" />
+        </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto bg-purpleretro" id="navbar-default">
+        <ul
+          class="font-medium flex flex-col p-4 md:p-0 mt-4  border-gray-100 border-2 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 bg-purpleretro">
+          <li>
+            <a id="dailyTask" href="#" class="block py-2 px-3 text-white  bg-greenretro  border-2  "
+                            aria-current="page" data-modal-target="static-modal"
+                            data-modal-toggle="static-modal">Daily Tasks</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-white  border-2 bg-grayretro">About</a>
+          </li>
+          <li>
+            <a href="./index.html" class="block py-2 px-3 text-white border-2 bg-darkgrayretro">Home</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar ended -->
+  <!-- Category section started -->
+  <section
+    class="container w-full border-8 border-black pt-12 pb-16 flex flex-col justify-center items-center bg-pattern">
+    <div class="w-full px-[72px] flex justify-between items-center mb-[26px] flex-wrap">
+
+      <!-- difficulty div added -->
+      <div class=" w-full lg:w-1/2 flex items-center gap-12 justify-start ">
+        <h3 class="mb-5 text-lg p-2 font-medium bg-grayretro text-center border-4 border-black">Choose Difficulty:</h3>
+        <ul class="grid w-full gap-6 md:grid-cols-3">
+          <li class="difficulty">
+            <input type="checkbox" id="easy" value="easy" class="hidden peer">
+            <label for="easy"
+              class="inline-flex items-center justify-between w-full border-4 border-black px-2 py-1 text-center bg-grayretro peer-checked:bg-yellowretro cursor-pointer peer-checked:underline hover:text-gray-600" >
+              <div class="w-full text-lg font-semibold">Easy</div>
+            </label>
+          </li>
+          <li class="difficulty">
+            <input type="checkbox" id="medium" value="medium" class="hidden peer">
+            <label for="medium"
+              class="inline-flex items-center justify-between w-full border-4 border-black px-2 py-1 text-center bg-grayretro peer-checked:bg-yellowretro cursor-pointer peer-checked:underline hover:text-gray-600">
+              <div class="w-full text-lg font-semibold">Medium</div>
+            </label>
+          </li>
+          <li class="difficulty">
+            <input type="checkbox" id="hard" value="hard" class="hidden peer">
+            <label for="hard"
+              class="inline-flex items-center justify-between w-full border-4 border-black px-2 py-1 text-center bg-grayretro peer-checked:bg-yellowretro cursor-pointer peer-checked:underline hover:text-gray-600">
+              <div class="w-full text-lg font-semibold">Hard</div>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <!-- Difficulty div ended -->
+      <div class="w-full lg:w-1/2 flex items-center gap-12 justify-start lg:justify-end">
+        <form class="max-w-xs flex gap-4 items-center ">
+          <label for="counter-input"
+            class="block mb-1 p-2 text-lg font-semibold bg-grayretro text-center border-4 border-black">Choose Number of
+            Questions:</label>
+          <div class="relative flex items-center peer">
+            <button type="button" id="decrement-button" data-input-counter-decrement="questionAmount"
+              class="flex-shrink-0 peer-checked:bg-yellowretro  inline-flex items-center justify-center border-4 border-black bg-grayretro  h-8 w-8  focus:outline-none">
+              <svg class="w-2.5 h-2.5 text-black
+                  " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M1 1h16" />
+              </svg>
+            </button>
+            <input type="text" id="questionAmount" data-input-counter
+              class="flex-shrink-0 border-1 border-black text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center bg-grayretro"
+              placeholder="" value="5" required />
+            <button type="button" id="increment-button" data-input-counter-increment="questionAmount"
+              class="flex-shrink-0   inline-flex items-center justify-center border-4 border-black bg-grayretro  h-8 w-8  focus:outline-none">
+              <svg class="w-2.5 h-2.5 text-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 18 18">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 1v16M1 9h16" />
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+    <div class="grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-[95%]   border-4   border-black bg-grayretro">
+      <div id="animalQuestion" class="category-warper" data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/animal.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center">Animal</h2>
+      </div>
+      <div id="mythologyQuestion" class="category-warper" data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/mythology.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Mythology</h2>
+      </div>
+      <div id="celebrityQuestion" class="category-warper " data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/celebrity.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Celebrity</h2>
+      </div>
+      <div id="artQuestion" class="category-warper " data-modal-target="static-modal" data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/art.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Art</h2>
+      </div>
+      <div id="politicsQuestion" class="category-warper" data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/politics.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">
+          Politics
+        </h2>
+      </div>
+      <div id="vehiclesQuestion" class="category-warper" data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/vehicles.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Vehicles</h2>
+      </div>
+      <div id="comicsQuestion" class="category-warper" data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/comics.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Comics</h2>
+      </div>
+      <div id="gadgetsQuestion" class="category-warper" data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/gadgets.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Gadgets</h2>
+      </div>
+      <div id="animeQuestion" class="category-warper" data-modal-target="static-modal" data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/anime.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Anime</h2>
+      </div>
+      <div id="cartoonQuestion" class="category-warper" data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/cartoon.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Cartoon</h2>
+      </div>
+      <div id="historyQuestion" class="category-warper" data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/history.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">History</h2>
+      </div>
+      <div id="geographyQuestion" class="category-warper" data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/geography.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Geography</h2>
+      </div>
+      <div id="sportsQuestion" class="category-warper" data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/sports.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Sports</h2>
+      </div>
+      <div id="mathematicsQuestion" class="category-warper" data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/mathematics.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Mathematics</h2>
+      </div>
+      <div id="computersQuestion" class="category-warper" data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/computers.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Computers</h2>
+      </div>
+      <div id="scienceQuestion" class="category-warper" data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/science.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Science</h2>
+      </div>
+      <div id="boardgameQuestion" class="category-warper" data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/boardgame.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Boardgame</h2>
+      </div>
+      <div id="videogamesQuestion" class="category-warper" data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/videogame.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Videogames</h2>
+      </div>
+      <div id="theatersQuestion" class="category-warper" data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/theaters.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Theaters</h2>
+      </div>
+      <div id="musicQuestion" class="category-warper" data-modal-target="static-modal" data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/music.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Music</h2>
+      </div>
+      <div id="movieQuestion" class="category-warper" data-modal-target="static-modal" data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/movie.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Movie</h2>
+      </div>
+      <div id="televisionShowQuestion" class="category-warper" data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/tv.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Television Show</h2>
+      </div>
+      <div id="booksQuestion" class="category-warper" data-modal-target="static-modal" data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/books.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">Books</h2>
+      </div>
+      <div id="generalKnowledgeQuestion" class="category-warper" data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/generalkn.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center ">General knowledge</h2>
+      </div>
+      <div id="anyCategoryQuestion" class="category-warper " data-modal-target="static-modal"
+        data-modal-toggle="static-modal">
+        <div class="w-4/6 border-4 border-black">
+          <img src="../src/images/anycategories.svg" alt="" class="">
+        </div>
+        <h2 class="font-bold text-2xl sm:text-3xl text-center">Any Category</h2>
+      </div>
+    </div>
+  </section>
+  <!-- Category section ended -->
+  <!-- Question Box Start -->
+  <!-- Modal toggle -->
+  <!-- Main modal -->
+  <div id="static-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative p-4 w-full max-w-2xl max-h-full">
+      <!-- Modal content -->
+      <div class="relative bg-gray-100 border-4 border-black shadow-2xl dark:bg-gray-700">
+        <!-- Modal header -->
+        <div class="flex items-center justify-between p-4 md:p-5 border-b-4 border-black  dark:border-gray-600">
+          <h3 id="modalHeader" class="text-xl font-semibold text-gray-900 dark:text-white">
+            <!-- Skeleton -->
+            <div role="status" class="max-w-sm animate-pulse">
+              <div class="h-2.5 bg-gray-500 rounded-full w-48 mb-4"></div>
+              <div class="h-2 bg-gray-500 rounded-full max-w-[360px] mb-2.5"></div>
+              <span class="sr-only">Loading...</span>
+            </div>
+          </h3>
+          <button type="button"
+            class="text-gray-400 bg-transparent hover:bg-darkgrayretro hover:text-gray-100 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+            data-modal-hide="static-modal">
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+            </svg>
+            <span class="sr-only">Close modal</span>
+          </button>
+        </div>
+        <!-- Modal body -->
+        <div class="p-4 md:p-5 space-y-4">
+          <ol id="questionWarper" class="space-y-4 text-black font-extrabold list-decimal list-inside">
+            <!-- Skeleton -->
+            <div role="status" class="max-w-sm animate-pulse">
+              <div class="h-2.5 bg-gray-500 rounded-full w-48 mb-4"></div>
+              <div class="h-2 bg-gray-500 rounded-full max-w-[360px] mb-2.5"></div>
+              <div class="h-2 bg-gray-500 rounded-full mb-2.5"></div>
+              <div class="h-2 bg-gray-500 rounded-full max-w-[330px] mb-2.5"></div>
+              <div class="h-2 bg-gray-500 rounded-full max-w-[300px] mb-2.5"></div>
+              <div class="h-2 bg-gray-500 rounded-full max-w-[360px]"></div>
+              <span class="sr-only">Loading...</span>
+            </div>
+            <div role="status" class="space-y-2.5 animate-pulse max-w-lg">
+              <div class="flex items-center w-full">
+                <div class="h-2.5 bg-gray-400 rounded-full  w-32"></div>
+                <div class="h-2.5 ms-2 bg-gray-500 rounded-full  w-24"></div>
+                <div class="h-2.5 ms-2 bg-gray-500 rounded-full  w-full"></div>
+              </div>
+              <div class="flex items-center w-full max-w-[480px]">
+                <div class="h-2.5 bg-gray-400 rounded-full  w-full"></div>
+                <div class="h-2.5 ms-2 bg-gray-500 rounded-full  w-full"></div>
+                <div class="h-2.5 ms-2 bg-gray-500 rounded-full  w-24"></div>
+              </div>
+              <div class="flex items-center w-full max-w-[400px]">
+                <div class="h-2.5 bg-gray-500 rounded-full  w-full"></div>
+                <div class="h-2.5 ms-2 bg-gray-400 rounded-full  w-80"></div>
+                <div class="h-2.5 ms-2 bg-gray-500 rounded-full  w-full"></div>
+              </div>
+              <div class="flex items-center w-full max-w-[480px]">
+                <div class="h-2.5  bg-gray-400 rounded-full  w-full"></div>
+                <div class="h-2.5 ms-2 bg-gray-500 rounded-full  w-full"></div>
+                <div class="h-2.5 ms-2 bg-gray-500 rounded-full  w-24"></div>
+              </div>
+              <div class="flex items-center w-full max-w-[440px]">
+                <div class="h-2.5  bg-gray-500 rounded-full  w-32"></div>
+                <div class="h-2.5 ms-2 bg-gray-500 rounded-full  w-24"></div>
+                <div class="h-2.5 ms-2 bg-gray-400 rounded-full  w-full"></div>
+              </div>
+              <div class="flex items-center w-full max-w-[360px]">
+                <div class="h-2.5  bg-gray-500 rounded-full  w-full"></div>
+                <div class="h-2.5 ms-2 bg-gray-400 rounded-full  w-80"></div>
+                <div class="h-2.5 ms-2 bg-gray-500 rounded-full  w-full"></div>
+              </div>
+            </div>
+          </ol>
+        </div>
+        <!-- Modal footer -->
+        <div class="flex items-center p-4 md:p-5 border-t-4 border-black  ">
+          <button id="submitAnswers" type="button"
+            class="text-white bg-grayretro border-4 border-black hover:bg-darkgrayretro focus:outline-none font-medium text-sm px-5 py-2.5 text-center">
+            Submite My Answers
+          </button>
+          <button data-modal-hide="static-modal" type="button"
+            class="py-2.5 px-5 ms-3 text-sm font-medium text-white bg-pinkretro border-4 border-black hover:bg-pink-600 hover:text-gray-300">Decline</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Question Box End -->
+  <!-- footer started -->
+  <footer class="bg-greenretro border-8 border-black border-t-0">
+    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+      <div class="md:flex md:justify-between">
+        <div class="mb-6 md:mb-0">
+          <a href="" class="flex items-center">
+            <img src="../src/icons/Icon psychology alt.svg" class="h-8 me-3" alt="" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Quiz Land</span>
+          </a>
+        </div>
+        <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+          <div>
+            <h2 class="mb-6 text-sm font-semibold text-white uppercase dark:text-white">Let's Play</h2>
+            <ul class="text-white dark:text-gray-400 font-medium">
+              <li class="mb-4">
+                <a href="" class="hover:underline">Daily Tasks</a>
+              </li>
+              <li>
+                <a href="" class="hover:underline">New Trivia</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="mb-6 text-sm font-semibold text-white uppercase dark:text-white">Infomation</h2>
+            <ul class="text-white dark:text-gray-400 font-medium">
+              <li class="mb-4">
+                <a href="" class="hover:underline ">Careers</a>
+              </li>
+              <li>
+                <a href="" class="hover:underline">Our Event</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="mb-6 text-sm font-semibold text-white uppercase ">Legal</h2>
+            <ul class="text-white">
+              <li class="mb-4">
+                <a href="#" class="hover:underline">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="sm:flex sm:items-center sm:justify-between">
+        <div class="flex mt-4 sm:justify-center sm:mt-0">
+          <a href="#" class="text-white hover:text-gray-900 dark:hover:text-white">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 8 19">
+              <path fill-rule="evenodd"
+                d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z"
+                clip-rule="evenodd" />
+            </svg>
+            <span class="sr-only">Facebook page</span>
+          </a>
+          <a href="#" class="text-white hover:text-gray-900 dark:hover:text-white ms-5">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 21 16">
+              <path
+                d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z" />
+            </svg>
+            <span class="sr-only">Discord community</span>
+          </a>
+          <a href="#" class="text-white hover:text-gray-900 dark:hover:text-white ms-5">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 20 17">
+              <path fill-rule="evenodd"
+                d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z"
+                clip-rule="evenodd" />
+            </svg>
+            <span class="sr-only">Twitter page</span>
+          </a>
+          <a href="#" class="text-white hover:text-gray-900 dark:hover:text-white ms-5">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
+                clip-rule="evenodd" />
+            </svg>
+            <span class="sr-only">GitHub account</span>
+          </a>
+          <a href="#" class="text-white hover:text-gray-900 dark:hover:text-white ms-5">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z"
+                clip-rule="evenodd" />
+            </svg>
+            <span class="sr-only">Dribbble account</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- footer ended -->
+  <script src="../js/flowbite.min.js"></script>
+  <script type="module" src="../js/domUtils.js"></script>
+  <script type="module" src="../js/fetchCostum.js"></script>
+</body>
+
+</html>
