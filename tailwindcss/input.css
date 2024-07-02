@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .category-warper {
+        @apply flex flex-col items-center justify-center gap-9 border-4 border-black h-80 m-2 bg-white cursor-pointer hover:bg-darkgrayretro hover:text-white transition-colors
+    }
+
+
+    .question-checkbox {
+        @apply inline-flex items-center justify-between w-full p-1 text-black bg-gray-400 border-4 border-black cursor-pointer peer-checked:bg-yellowretro hover:text-gray-600 hover:bg-yellowretro transition-colors
+        
+    }
+
+    .true-checkbox {
+        @apply  p-1 relative bg-greenretro border-4 border-black cursor-not-allowed        
+    }
+
+    .false-checkbox {
+        @apply  p-1 relative bg-pinkretro border-4 border-black cursor-not-allowed      
+    }
+
+    .no-answer {
+        @apply p-1 relative bg-sky-700 border-4 border-black animate-pulse
+        
+    }
+
+}
